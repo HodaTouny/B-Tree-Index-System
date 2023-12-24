@@ -1,3 +1,0 @@
-C:/Users/20100/Desktop/assigments/B-Tree-Index-System/cmake-build-debug/CMakeFiles/B_Tree_Index_System.dir
-C:/Users/20100/Desktop/assigments/B-Tree-Index-System/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/20100/Desktop/assigments/B-Tree-Index-System/cmake-build-debug/CMakeFiles/rebuild_cache.dir

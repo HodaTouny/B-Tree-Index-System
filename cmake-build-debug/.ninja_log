@@ -1,8 +1,0 @@
-# ninja log v5
-14	7457	7251533860904666	CMakeFiles/B_Tree_Index_System.dir/main.cpp.obj	582bc718d85d2579
-15649	16975	7251535304392865	B_Tree_Index_System.exe	7de998f2406d0bd4
-2	1272	7251536802857708	build.ninja	ad73acd73df949dd
-21	10848	7251535242941527	CMakeFiles/B_Tree_Index_System.dir/CustomFunctions.cpp.obj	4abb58052ad76fd2
-8	11268	7251535247299868	CMakeFiles/B_Tree_Index_System.dir/IndexSystem.cpp.obj	145e30eb14c880a2
-15	11615	7251535250770578	CMakeFiles/B_Tree_Index_System.dir/IndexHelper.cpp.obj	b4f6206bb1a9c01c
-10849	15648	7251535291153840	CMakeFiles/B_Tree_Index_System.dir/IndexInterface.cpp.obj	619468d8135e809f
