@@ -1,5 +1,6 @@
 #include "CustomFunctions.h"
 
+
 //when split first line need to shift the children one record down to add root
 void CustomFunctions:: shiftDown(int **btree ,int cols, int numRows, int rowToShift) {
     for (int i = numRows - 1; i > rowToShift; --i) {

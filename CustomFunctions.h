@@ -1,4 +1,3 @@
-
 #ifndef DEMOBTREE_CUSTOMFUNCTIONS_H
 #define DEMOBTREE_CUSTOMFUNCTIONS_H
 #include "bits/stdc++.h"

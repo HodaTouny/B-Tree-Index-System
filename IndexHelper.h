@@ -1,8 +1,8 @@
-
 #ifndef DEMOBTREE_INDEXHELPER_H
 #define DEMOBTREE_INDEXHELPER_H
 #include "bits/stdc++.h"
 #include "CustomFunctions.h"
+
 using namespace std;
 
 class IndexHelper {

@@ -1,10 +1,10 @@
-
 #ifndef DEMOBTREE_INDEXSYSTEM_H
 #define DEMOBTREE_INDEXSYSTEM_H
 #include "bits/stdc++.h"
 #include "CustomFunctions.h"
 #include "IndexHelper.h"
 using namespace std;
+
 
 class IndexSystem {
 public:

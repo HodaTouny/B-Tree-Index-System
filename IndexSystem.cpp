@@ -1,5 +1,4 @@
 #include "IndexSystem.h"
-
 //handle insert cases and return line in which node inserted
 int IndexSystem:: insert(int maxrow,int maxcolumn, vector<pair<int, int>> data , int** btree) {
     sort(data.begin(), data.end());

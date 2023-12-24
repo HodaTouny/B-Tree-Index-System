@@ -4,6 +4,7 @@
 #include "IndexHelper.h"
 #include "CustomFunctions.h"
 
+
 class IndexInterface {
     int** Btree;
     int MaxColumn;

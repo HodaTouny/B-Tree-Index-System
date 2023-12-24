@@ -1,6 +1,5 @@
 #include "IndexInterface.h"
 
-
 void IndexInterface::InsertHandler(){
     int id,offset;
     cout<<"Enter The record To insert : (value Offset)\n";
