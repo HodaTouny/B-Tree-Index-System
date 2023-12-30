@@ -16,7 +16,17 @@ void IndexInterface::InsertHandler(){
 
 
 void IndexInterface:: deleteHandler(){
+    int value;
+    cout << "Enter Value To Delete : " << endl;
+    cin >> value;
+    //     cout << '\n';
 
+    // for(auto x : indexSystem.index.whereToGoFunction(Btree,9,MaxRecords,MaxColumn)){
+    //     cout << x << " ";
+    // }
+    // cout << '\n';
+
+    indexSystem.deleteItem(Btree,value,MaxColumn,MaxRecords);
 }
 
 void IndexInterface :: SearchHandler(){
@@ -41,7 +51,9 @@ void IndexInterface::MainMenu() {
         cout << "4. Exit\n";
         int choice;
         cout << "Enter your choice (1-4): ";
+
         cin >> choice;
+
         switch (choice) {
             case 1:
                 SearchHandler();

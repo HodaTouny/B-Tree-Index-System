@@ -12,6 +12,7 @@ public:
     CustomFunctions customFunction;
     int insert(int maxrow,int maxcolumn, vector<pair<int, int>> data , int** btree);
     int SearchItem(int ** btree,int value,int maxColumn,int maxRows);
+    int deleteItem(int ** btree,int value,int maxColumn,int maxRows);
 };
 
 
