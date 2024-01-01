@@ -11,13 +11,9 @@ int IndexSystem:: insert(int maxrow,int maxcolumn, vector<pair<int, int>> data ,
             btree[i][2] = data[0].second;
             return i;
         }else if (btree[i][0] == 1){
-
             vector<int> temp = index.whereToGoFunction(btree,data[0].first,maxrow,maxcolumn);
             int whereToGoI = temp[0];
-
-
             bool emptyToInsertNode = customFunction.emptyToInsert(btree,whereToGoI,maxcolumn);
-
             if(emptyToInsertNode){
                 vector<set<int>> mset = index.insertNotFull(btree,maxcolumn,temp,data);
                 index.updateRootNormal(btree,maxcolumn,temp,mset[0]);
@@ -29,7 +25,6 @@ int IndexSystem:: insert(int maxrow,int maxcolumn, vector<pair<int, int>> data ,
                 }
                 index.updateRoot(btree,ll[0],ll[1],maxrow,maxcolumn,temp,ll[2].first);
                 return ll[3].first;
-
             }
         }else if(btree[i][0] == 0){
             vector<int> temp = index.whereToGoFunction(btree,data[0].first,maxrow,maxcolumn);
@@ -243,11 +238,12 @@ pair<int,int> getRightLeftSiblings(vector<int> whereToGo,int** btree,int maxColu
             rightLeftSiblings.second = rightSibling;
         }
     }
-    cout << rightLeftSiblings.first << " " << rightLeftSiblings.second << endl;
     return rightLeftSiblings;
 }
-int underFlow = 2;
-bool getCanCauseUnderFlow(int numberOFNodes){
+int underFlow =0;
+bool getCanCauseUnderFlow(int numberOFNodes,int maxrows){
+    int m = ceil(maxrows / 2);
+    underFlow = ceil(m / 2);
     return numberOFNodes <= underFlow;
 }
 int getMinimumUnderFlowIndex(){
@@ -259,14 +255,11 @@ pair<int,int> getGreatestNumberInNode(int ** btree,int maxColumn,int maxRows,int
     }
     int greatest = -1;
     int greatestOffset = -1;
-
     for(int i=1;i<maxColumn;i+=2){
         if(btree[parentIndex][i] > greatest){
             greatest = btree[parentIndex][i];
             greatestOffset = btree[parentIndex][i + 1];
         }
-
-
 
     }
     return pair<int,int> {greatest,greatestOffset};
@@ -277,7 +270,7 @@ int IndexSystem:: deleteItem(int ** btree,int value,int maxColumn,int maxRows){
     int col = getColumnIndex(btree,value,maxColumn,maxRows,temp);
     bool isNotInternalNode = getIsNotInternalNode(btree,value,maxColumn,maxRows,temp);
     int numberOFNodes = getNumberOfNodes(btree,maxColumn,maxRows,row);
-    bool canCauseUnderFlow = getCanCauseUnderFlow(numberOFNodes) ;
+    bool canCauseUnderFlow = getCanCauseUnderFlow(numberOFNodes,maxRows) ;
     if(canCauseUnderFlow){
         pair<int,int> greatestNumberCurrentDataFirst = getGreatestNumberInNode(btree,maxColumn,maxRows,row);
 
@@ -285,7 +278,7 @@ int IndexSystem:: deleteItem(int ** btree,int value,int maxColumn,int maxRows){
         cout << rightLeftSiblingsIndex.first << " " << rightLeftSiblingsIndex.second << endl;
         int numberoFNodesRight = getNumberOfNodes(btree,maxColumn,maxRows,rightLeftSiblingsIndex.second);
         int numberoFNodesLeft = getNumberOfNodes(btree,maxColumn,maxRows,rightLeftSiblingsIndex.first);
-        if(!getCanCauseUnderFlow(numberoFNodesRight)){
+        if(!getCanCauseUnderFlow(numberoFNodesRight,maxRows)){
             int lowestNumberRight = btree[rightLeftSiblingsIndex.second][1];
             int lowestNumberRightOffset = btree[rightLeftSiblingsIndex.second][2];
             pair<int,int> greatestNumberCurrentData = getGreatestNumberInNode(btree,maxColumn,maxRows,row);
@@ -303,7 +296,7 @@ int IndexSystem:: deleteItem(int ** btree,int value,int maxColumn,int maxRows){
                 updateParents(btree,greatestNumberCurrent,maxColumn,maxRows,temp,lowestNumberRight);
             }
         }
-        else if(!getCanCauseUnderFlow(numberoFNodesLeft)){
+        else if(!(numberoFNodesLeft,maxRows)){
             pair<int,int> greatestNumberLeftData = getGreatestNumberInNode(btree,maxColumn,maxRows,rightLeftSiblingsIndex.first);
             int greatestNodeLeft = greatestNumberLeftData.first;
 

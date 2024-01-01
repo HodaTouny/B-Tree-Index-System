@@ -7,8 +7,8 @@ vector<pair<int, int>> IndexHelper:: insertFullSplit(int **btree, int maxcolumn,
     int value=data[0].first;
     int whereTo;
     whereTo=whereToGo[0];
-    int m = ceil(maxrow / 2);
     bool found = false;
+    int m = ceil(maxrow / 2);
     int minimum = ceil(m / 2)+1;
     btree[whereTo][0] = -1;
     vector<pair<int, int>> newData;
@@ -253,7 +253,6 @@ vector<int> IndexHelper::whereToGoFunction(int** btree, int value, int maxRow, i
     int index = 1;
     bool foundValue = false;
     int parentLine = 1;
-
     if (btree[i][0] == 1) {
         for (int j = 1; j < maxColumn; j += 2) {
             if (value <= btree[i][j]) {
